@@ -20,7 +20,8 @@ defmodule Places.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Places do
-  #   pipe_through :api
-  # end
+  scope "/api", Places do
+    pipe_through :api
+    resources "/places", PlaceController, except: [:new, :edit]
+  end
 end
